@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+
+{% block style %}
+    <style>
+        #form {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #buttons{
+            margin-top: 80px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="form">
+        <form class="form-horizontal" method="post" action="{% url 'login:sign_up' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input name="username" type="text" class="form-control" id="inputEmail3" placeholder="Input Your Username">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input name="password1" type="password" class="form-control" id="inputPassword3" placeholder="Input Your Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input name="password2" type="password" class="form-control" id="inputPassword3" placeholder="Confirm Your Password">
+                </div>
+            </div>
+            <div class="form-group" id="buttons">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-danger btn-block" value="注册">
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
